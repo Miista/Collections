@@ -79,4 +79,70 @@ public class NSCollection {
 		}
 		return map;
 	}
+	
+	public static <T1, T2> Map<T1, T2> toMap(Class<T1> keyClass, Class<T2> valueClass, Object ... objects) {
+		Map<T1, T2> map = new HashMap<T1, T2>();
+		T1 key = null;
+		T2 value = null;
+		for (Object object : objects) {
+			if (key != null && value != null) {
+				map.put(key, value);
+				key = null;
+				value = null;
+			}
+			if (key == null) {
+				if (!keyClass.isInstance(object)) {
+					throw new ClassCastException("Object cannot be cast to "+keyClass.getCanonicalName());
+				}
+				key = (T1) object;
+				continue;
+			}
+			if (value == null) {
+				if (!valueClass.isInstance(object)) {
+					throw new ClassCastException("Object cannot be cast to "+valueClass.getCanonicalName());
+				}
+				value = (T2) object;
+				continue;
+			}
+		}
+		if (key != null && value != null) {
+			map.put(key, value);
+		}
+		return map;
+	}
+	
+	public static <T1, T2> Map<T1, T2> toUnsafeMap(Class<T1> keyClass, Class<T2> valueClass, Object ... objects) {
+		Map<T1, T2> map = new HashMap<T1, T2>();
+		T1 key = null;
+		T2 value = null;
+		for (Object object : objects) {
+			if (key != null && value != null) {
+				map.put(key, value);
+				key = null;
+				value = null;
+			}
+			if (key == null) {
+				if (!keyClass.isInstance(object)) {
+					key = null;
+					value = null;
+					continue;
+				}
+				key = (T1) object;
+				continue;
+			}
+			if (value == null) {
+				if (!valueClass.isInstance(object)) {
+					key = null;
+					value = null;
+					continue;
+				}
+				value = (T2) object;
+				continue;
+			}
+		}
+		if (key != null && value != null) {
+			map.put(key, value);
+		}
+		return map;
+	}
 }
