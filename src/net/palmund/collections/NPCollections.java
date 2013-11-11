@@ -105,6 +105,18 @@ public class NPCollections {
 		return map;
 	}
 
+	/**
+	 * Returns a {@link Map} that contains the <i>objects</i> as key-value
+	 * pairs. If any of the keys or values does not match their designated class
+	 * (<i>keyClass</i> and <i>valueClass</i> respectively) a
+	 * {@link ClassCastException} is thrown.
+	 * 
+	 * @param keyClass
+	 * @param valueClass
+	 * @param objects
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public static <T1, T2> Map<T1, T2> toMap(Class<T1> keyClass, Class<T2> valueClass, Object... objects) {
 		Map<T1, T2> map = new HashMap<T1, T2>();
 		T1 key = null;
@@ -136,6 +148,17 @@ public class NPCollections {
 		return map;
 	}
 
+	/**
+	 * /** Returns a {@link Map} that contains the <i>objects</i> as key-value
+	 * pairs. If a key does not match its designated class (<i>keyClass</i>) nor
+	 * it or its value is added. The same goes for the value.
+	 * 
+	 * @param keyClass
+	 * @param valueClass
+	 * @param objects
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	public static <T1, T2> Map<T1, T2> toUnsafeMap(Class<T1> keyClass, Class<T2> valueClass, Object... objects) {
 		Map<T1, T2> map = new HashMap<T1, T2>();
 		T1 key = null;
