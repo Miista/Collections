@@ -22,7 +22,7 @@ public class PredicateTest {
 	
 	@Test
 	public void testFilterByPredicate() {
-		Collection<String> filteredList = NSCollection.filter(list, new Predicate<String>() {
+		Collection<String> filteredList = NPCollections.filter(list, new Predicate<String>() {
 												@Override
 												public boolean evaluate(String object) {
 													return object.contains("e");
@@ -33,7 +33,7 @@ public class PredicateTest {
 	
 	@Test
 	public void testFindByPredicate() {
-		String string = NSCollection.find(list, new Predicate<String>() {
+		String string = NPCollections.find(list, new Predicate<String>() {
 			@Override
 			public boolean evaluate(String object) {
 				return object.contains("m");

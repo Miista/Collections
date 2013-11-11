@@ -17,20 +17,20 @@ public class NSCollectionTest {
 
 	@Test
 	public void testToMapObjectArray_Strings() {
-		Map<String, String> map = NSCollection.toMap(String.class, String.class, "hej", "med", "dig", "!");
+		Map<String, String> map = NPCollections.toMap(String.class, String.class, "hej", "med", "dig", "!");
 		assertEquals(2, map.size());
 	}
 	
 	@Test
 	public void testToMapObjectArray_Ints() {
-		Map<Integer, Integer> map = NSCollection.toMap(Integer.class, Integer.class, 0, 1, 2, 3);
+		Map<Integer, Integer> map = NPCollections.toMap(Integer.class, Integer.class, 0, 1, 2, 3);
 		assertEquals(2, map.size());
 	}
 	
 	@Test
 	public void testToMapObjectArray_MixedTypes() {
 		try {
-			Map<Integer, Integer> map = NSCollection.toMap(Integer.class, Integer.class, 0, 1, "dig", "!");
+			Map<Integer, Integer> map = NPCollections.toMap(Integer.class, Integer.class, 0, 1, "dig", "!");
 		} catch (ClassCastException e) {
 			assertTrue(true);
 			return;
@@ -40,7 +40,7 @@ public class NSCollectionTest {
 	
 	@Test
 	public void testToUnsafeMapObjectArray_MixedTypes() {
-		Map<Integer, Integer> map = NSCollection.toUnsafeMap(Integer.class, Integer.class, 0, 1, "dig", "!");
+		Map<Integer, Integer> map = NPCollections.toUnsafeMap(Integer.class, Integer.class, 0, 1, "dig", "!");
 		assertEquals(1, map.size());
 	}
 }

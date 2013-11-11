@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NSCollection {
+public class NPCollections {
 	/**
 	 * Returns a {@link Collection} with the items that matched the
 	 * <i>predicate</i>.
