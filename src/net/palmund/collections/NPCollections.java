@@ -1,5 +1,5 @@
 /*
- * Copyright 2013 (c) S¿ren Palmund
+ * Copyright 2013 (c) S&oslash;ren Palmund
  * 
  * Licensed under the License described in LICENSE (the "License"); you may not
  * use this file except in compliance with the License.
