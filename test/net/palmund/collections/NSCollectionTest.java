@@ -56,11 +56,11 @@ public class NSCollectionTest {
 			add("key3:value3");
 			add("key4:value4");
 		}};
-		Transformer<String, KeyValuePair<String, String>> transformer = new Transformer<String, KeyValuePair<String, String>>() {
+		Transformer<String, NPKeyValuePair<String, String>> transformer = new Transformer<String, NPKeyValuePair<String, String>>() {
 			@Override
-			public KeyValuePair<String, String> transform(String object) {
+			public NPKeyValuePair<String, String> transform(String object) {
 				String[] chunks = object.split(":");
-				return new KeyValuePair<String, String>(chunks[0], chunks[1]);
+				return new NPKeyValuePair<String, String>(chunks[0], chunks[1]);
 			}
 		};
 		Map<String, String> transformedMap = NPCollections.toMap(collection, transformer);

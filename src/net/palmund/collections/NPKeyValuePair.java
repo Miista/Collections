@@ -7,11 +7,11 @@
 
 package net.palmund.collections;
 
-public class KeyValuePair<T, V> {
+public class NPKeyValuePair<T, V> {
 	private T key;
 	private V value;
 
-	public KeyValuePair(T key, V value) {
+	public NPKeyValuePair(T key, V value) {
 		this.key = key;
 		this.value = value;
 	}
