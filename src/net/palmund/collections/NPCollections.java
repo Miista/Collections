@@ -66,6 +66,11 @@ public class NPCollections {
 	 * @return a collection of transformed objects
 	 */
 	public static <O, TO, T3 extends O> Collection<TO> transformList(Collection<T3> collection, Transformer<O, TO> transformer) {
+		/*
+		 * O: Original value
+		 * TO: Transformed Original value
+		 * T3: Any type that extends the Original value
+		 */
 		if (collection == null) {
 			return null;
 		}
@@ -98,6 +103,22 @@ public class NPCollections {
 		return map;
 	}
 
+	/**
+	 * Returns a {@link Map} containing the values in the <i>collection</i> by
+	 * transforming each of the elements using the supplied {@link Transformer}.
+	 * 
+	 * @param pairs
+	 * @return
+	 */
+	public static <O, TKey, TValue> Map<TKey, TValue> toMap(Collection<O> collection, Transformer<O, KeyValuePair<TKey, TValue>> transformer) {
+		Map<TKey, TValue> map = new HashMap<TKey, TValue>();
+		for (O element : collection) {
+			KeyValuePair<TKey, TValue> pair = transformer.transform(element);
+			map.put(pair.getKey(), pair.getValue());
+		}
+		return map;
+	}
+	
 	/**
 	 * Returns a {@link Map} containing the values in <i>pairs</i>.
 	 * 
