@@ -7,20 +7,20 @@
 
 package net.palmund.collections;
 
-public class NPKeyValuePair<T, V> {
-	private T key;
-	private V value;
+public class NPKeyValuePair<TKey, TValue> {
+	private TKey key;
+	private TValue value;
 
-	public NPKeyValuePair(T key, V value) {
+	public NPKeyValuePair(TKey key, TValue value) {
 		this.key = key;
 		this.value = value;
 	}
 
-	public T getKey() {
+	public TKey getKey() {
 		return key;
 	}
 
-	public V getValue() {
+	public TValue getValue() {
 		return value;
 	}
 }
