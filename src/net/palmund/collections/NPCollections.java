@@ -55,13 +55,13 @@ public class NPCollections {
 	}
 
 	/**
-	 * Transforms each and every object in a {@link Collection} into another
+	 * Transforms each and every element in a {@link Collection} into another
 	 * object.
 	 * 
 	 * @param collection
-	 *            the original collection of objects
+	 *            the original collection
 	 * @param transformer
-	 *            a {@link Transformer}
+	 *            a {@link Transformer} that can transform the elements in <i>collection</i>
 	 * 
 	 * @return a collection of transformed objects
 	 */
@@ -105,9 +105,10 @@ public class NPCollections {
 
 	/**
 	 * Returns a {@link Map} containing the values in the <i>collection</i> by
-	 * transforming each of the elements using the supplied {@link Transformer}.
+	 * transforming each of the elements using the supplied <i>transformer</i>.
 	 * 
-	 * @param pairs
+	 * @param collection a collection whose elements are to be transformed
+	 * @param transformer a {@link Transformer} that can transform the elements in <i>collection</i>
 	 * @return
 	 */
 	public static <O, TKey, TValue> Map<TKey, TValue> toMap(Collection<O> collection, Transformer<O, NPKeyValuePair<TKey, TValue>> transformer) {
@@ -177,7 +178,7 @@ public class NPCollections {
 	}
 
 	/**
-	 * /** Returns a {@link Map} that contains the <i>objects</i> as key-value
+	 * Returns a {@link Map} that contains the <i>objects</i> as key-value
 	 * pairs. If a key does not match its designated class (<i>keyClass</i>) nor
 	 * it or its value is added. The same goes for the value.
 	 * 
